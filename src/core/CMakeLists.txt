@@ -625,7 +625,7 @@ SET(QGIS_CORE_HDRS
   qgsconnectionpool.h
   qgscontexthelp.h
   qgsconditionalstyle.h
-  qgscoordinatereferencesystem.h  
+  qgscoordinatereferencesystem.h
   qgscoordinatereferencesystem_p.h
   qgscoordinateutils.h
   qgscrscache.h
@@ -912,6 +912,12 @@ INCLUDE_DIRECTORIES(SYSTEM
 REMOVE_DEFINITIONS("-DCORE_EXPORT=${DLLIMPORT}")
 ADD_DEFINITIONS("\"-DCORE_EXPORT=${DLLEXPORT}\"")
 
+IF (APPLE)
+  # Libtasn1 is for DER-encoded PKI ASN.1 parsing/extracting workarounds
+  INCLUDE_DIRECTORIES(SYSTEM
+    ${LIBTASN1_INCLUDE_DIR}
+  )
+ENDIF (APPLE)
 
 #for PAL classes
 IF (WIN32)
@@ -964,6 +970,10 @@ IF (WIN32)
   FIND_LIBRARY(SETUPAPI_LIBRARY NAMES setupapi PATHS $ENV{LIB})
   TARGET_LINK_LIBRARIES(qgis_core wsock32 ${SETUPAPI_LIBRARY})
 ENDIF (WIN32)
+
+IF (APPLE)
+  TARGET_LINK_LIBRARIES(qgis_core ${LIBTASN1_LIBRARY})
+ENDIF (APPLE)
 
 IF(APPLE)
   TARGET_LINK_LIBRARIES(qgis_core "-framework CoreFoundation -framework IOKit")

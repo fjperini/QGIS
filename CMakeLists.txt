@@ -67,6 +67,11 @@ IF(WITH_SERVER)
   ENDIF(WITH_SERVER_PLUGINS)
 ENDIF(WITH_SERVER)
 
+IF (APPLE)
+  # Libtasn1 is for DER-encoded PKI ASN.1 parsing/extracting workarounds
+  FIND_PACKAGE(Libtasn1 REQUIRED)
+ENDIF (APPLE)
+
 # Custom widgets
 SET (WITH_CUSTOM_WIDGETS FALSE CACHE BOOL "Determines whether QGIS custom widgets for Qt Designer should be built")
 

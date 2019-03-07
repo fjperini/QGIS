@@ -25,7 +25,7 @@
 #include <QUrl>
 #include <QMutex>
 
-#include "qgis_core.h"
+//#include "qgis_core.h"
 
 class QgsAuthMethodConfig;
 

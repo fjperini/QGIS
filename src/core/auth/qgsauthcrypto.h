@@ -22,7 +22,7 @@
 #include <QFile>
 #include <QString>
 
-#include "qgis_core.h"
+//#include "qgis_core.h"
 
 /**
  * \ingroup core

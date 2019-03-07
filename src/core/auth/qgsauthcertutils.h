@@ -25,7 +25,7 @@
 #include <QSslError>
 
 #include "qgsauthconfig.h"
-#include "qgis_core.h"
+//#include "qgis_core.h"
 
 class QgsAuthConfigSslServer;
 

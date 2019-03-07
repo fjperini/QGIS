@@ -25,7 +25,7 @@
 #include <QString>
 #include <memory>
 
-#include "qgis_core.h"
+//#include "qgis_core.h"
 
 class QgsAuthMethod;
 class QgsAuthMethodMetadata;
@@ -147,7 +147,7 @@ class CORE_EXPORT QgsAuthMethodRegistry
 #include <QString>
 #include <memory>
 
-#include "qgis_core.h"
+//#include "qgis_core.h"
 
 class QgsAuthMethod;
 class QgsAuthMethodMetadata;

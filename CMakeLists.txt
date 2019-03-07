@@ -327,6 +327,9 @@ IF (QJSON_FOUND AND NOT ENABLE_QT5)
   SET (WITH_ARCGIS TRUE)
 ENDIF (QJSON_FOUND AND NOT ENABLE_QT5)
 
+# Password helper
+FIND_PACKAGE(QtKeychain REQUIRED)
+
 # Master password hash and authentication encryption
 FIND_PACKAGE(QCA REQUIRED)
 # Check for runtime dependency of qca-ossl plugin

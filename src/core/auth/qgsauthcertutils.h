@@ -369,7 +369,7 @@ class CORE_EXPORT QgsAuthCertUtils
      * this option is ignored and set to false
      * \return a list of error strings, if the list is empty then the PKI bundle is valid
      */
-    static QStringList validatePKIBundle( QgsPkiBundle &bundle, bool useIntermediates = true, bool trustRootCa = false );
+    //static QStringList validatePKIBundle( QgsPkiBundle &bundle, bool useIntermediates = true, bool trustRootCa = false );
 
   private:
     static void appendDirSegment_( QStringList &dirname, const QString &segment, QString value );

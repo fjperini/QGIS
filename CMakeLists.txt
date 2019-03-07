@@ -34,6 +34,9 @@ SET(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 # issue is caused by INCLUDE_DIRECTORIES(${CMAKE_BINARY_DIR}) near the end of this file generating incorrect path
 #SET (CMAKE_USE_RELATIVE_PATHS ON)
 
+# Libtasn1 is for DER-encoded PKI ASN.1 parsing/extracting workarounds
+FIND_PACKAGE(Libtasn1 REQUIRED)
+
 # try to configure and build GRASS plugin by default
 FOREACH (GRASS_SEARCH_VERSION 6 7)
   # For GRASS 6 are used cached variables without version suffix so that existing caches don't have to be reconfigured.
@@ -66,11 +69,6 @@ IF(WITH_SERVER)
     SET(HAVE_SERVER_PYTHON_PLUGINS TRUE)
   ENDIF(WITH_SERVER_PLUGINS)
 ENDIF(WITH_SERVER)
-
-IF (APPLE)
-  # Libtasn1 is for DER-encoded PKI ASN.1 parsing/extracting workarounds
-  FIND_PACKAGE(Libtasn1 REQUIRED)
-ENDIF (APPLE)
 
 # Custom widgets
 SET (WITH_CUSTOM_WIDGETS FALSE CACHE BOOL "Determines whether QGIS custom widgets for Qt Designer should be built")

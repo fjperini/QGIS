@@ -37,6 +37,11 @@
 #define SSL_SUBJECT_INFO( var, prop ) var.subjectInfo( prop )
 #endif
 
+
+#define SSL_ISSUER_INFO( var, prop ) var.issuerInfo( prop ).value(0)
+
+#define SSL_SUBJECT_INFO( var, prop ) var.subjectInfo( prop ).value(0)
+
 /** \ingroup core
  * \brief Utilities for working with certificates and keys
  */
@@ -98,12 +103,12 @@ class CORE_EXPORT QgsAuthCertUtils
 
     /** Map SSL custom configs' certificate sha1 to custom config as simple cache
      */
-    static QMap<QString, QgsAuthConfigSslServer> mapDigestToSslConfigs( const QList<QgsAuthConfigSslServer>& configs );
+    // static QMap<QString, QgsAuthConfigSslServer> mapDigestToSslConfigs( const QList<QgsAuthConfigSslServer>& configs );
 
     /** Map SSL custom configs' certificates to their oraganization.
      * @note not available in Python bindings
      */
-    static QMap< QString, QList<QgsAuthConfigSslServer> > sslConfigsGroupedByOrg( const QList<QgsAuthConfigSslServer>& configs );
+    // static QMap< QString, QList<QgsAuthConfigSslServer> > sslConfigsGroupedByOrg( const QList<QgsAuthConfigSslServer>& configs );
 
     /** Return list of concatenated certs from a PEM or DER formatted file */
     static QList<QSslCertificate> certsFromFile( const QString &certspath );

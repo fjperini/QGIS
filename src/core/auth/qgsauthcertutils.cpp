@@ -207,6 +207,7 @@ QStringList QgsAuthCertUtils::certKeyBundleToPem( const QString &certpath,
 
   QString keypem;
   QString algtype;
+ /***************************************************************************
   QSslKey clientkey = QgsAuthCertUtils::keyFromFile( keypath, keypass, &algtype );
 
   // reapply passphrase if protection is requested and passphrase exists
@@ -214,7 +215,7 @@ QStringList QgsAuthCertUtils::certKeyBundleToPem( const QString &certpath,
   {
     keypem = QString( clientkey.toPem(( reencrypt && !keypass.isEmpty() ) ? keypass.toUtf8() : QByteArray() ) );
   }
-
+ ***************************************************************************/
   return QStringList() << certpem << keypem << algtype;
 }
 
@@ -648,7 +649,7 @@ QList<QgsAuthCertUtils::CertUsageType> QgsAuthCertUtils::certificateUsageTypes( 
     qtCertsToQcaCollection( QgsAuthManager::instance()->getTrustedCaCertsCache() ) );
   QCA::CertificateCollection untrustedCAs(
     qtCertsToQcaCollection( QgsAuthManager::instance()->getUntrustedCaCerts() ) );
- ***************************************************************************/
+
   QCA::Validity v_any;
   v_any = qcacert.validate( trustedCAs, untrustedCAs, QCA::UsageAny, QCA::ValidateAll );
   if ( v_any == QCA::ValidityGood )
@@ -675,6 +676,7 @@ QList<QgsAuthCertUtils::CertUsageType> QgsAuthCertUtils::certificateUsageTypes( 
   {
     usages << QgsAuthCertUtils::TlsClientUsage;
   }
+   ***************************************************************************/
 
   // TODO: add TlsServerEvUsage, CodeSigningUsage, EmailProtectionUsage, TimeStampingUsage, CRLSigningUsage
   //       as they become necessary, since we do not want the overhead of checking just yet.

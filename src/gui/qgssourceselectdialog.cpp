@@ -36,6 +36,7 @@
 #include <QFileDialog>
 #include <QRadioButton>
 #include <QImageReader>
+#include <QButtonGroup>
 
 /** \ingroup gui
  * Item delegate with tweaked sizeHint.

@@ -27,6 +27,7 @@
 #include "qgsxyzconnection.h"
 
 #include <QInputDialog>
+#include <QAction>
 
 // ---------------------------------------------------------------------------
 QgsWMSConnectionItem::QgsWMSConnectionItem( QgsDataItem* parent, QString name, QString path, QString uri )

@@ -33,6 +33,7 @@
 #include <QPixmap>
 #include <QMouseEvent>
 #include <QStatusBar>
+#include <QAction>
 
 
 QgsMapToolCapture::QgsMapToolCapture( QgsMapCanvas* canvas, QgsAdvancedDigitizingDockWidget* cadDockWidget, CaptureMode mode )

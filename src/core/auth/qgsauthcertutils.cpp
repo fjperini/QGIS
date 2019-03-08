@@ -71,6 +71,7 @@ QMap<QString, QList<QSslCertificate> > QgsAuthCertUtils::certsGroupedByOrg( cons
   return orgcerts;
 }
 
+/***************************************************************************
 QMap<QString, QgsAuthConfigSslServer> QgsAuthCertUtils::mapDigestToSslConfigs( const QList<QgsAuthConfigSslServer>& configs )
 {
   QMap<QString, QgsAuthConfigSslServer> digestmap;
@@ -95,6 +96,7 @@ QMap<QString, QList<QgsAuthConfigSslServer> > QgsAuthCertUtils::sslConfigsGroupe
   }
   return orgconfigs;
 }
+***************************************************************************/
 
 static QByteArray fileData_( const QString& path, bool astext = false )
 {

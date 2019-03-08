@@ -1357,7 +1357,7 @@ bool QgsAuthManager::eraseAuthenticationDatabase( bool backup, QString *backuppa
 
   clearAllCachedConfigs();
   updateConfigAuthMethods();
-  initSslCaches();
+  // initSslCaches();
 
   emit authDatabaseChanged();
 
@@ -1768,6 +1768,7 @@ const QList<QSslCertificate> QgsAuthManager::getCertIdentities()
   return certs;
 }
 
+ /***************************************************************************
 QStringList QgsAuthManager::getCertIdentityIds() const
 {
   QMutexLocker locker( mMutex );
@@ -1793,7 +1794,7 @@ QStringList QgsAuthManager::getCertIdentityIds() const
   }
   return identityids;
 }
-
+ ***************************************************************************/
 bool QgsAuthManager::existsCertIdentity( const QString &id )
 {
   QMutexLocker locker( mMutex );
@@ -3258,11 +3259,14 @@ bool QgsAuthManager::reencryptAllAuthenticationIdentities( const QString &prevpa
     return false;
 
   bool res = true;
+
+  /***************************************************************************
   Q_FOREACH ( const QString &identid, getCertIdentityIds() )
   {
     res = res && reencryptAuthenticationIdentity( identid, prevpass, prevciv );
   }
   return res;
+   ***************************************************************************/
 }
 
 bool QgsAuthManager::reencryptAuthenticationIdentity(
@@ -3441,8 +3445,7 @@ void QgsAuthManager::insertCaCertInCache( QgsAuthCertUtils::CaCertSource source,
 {
   Q_FOREACH ( const QSslCertificate& cert, certs )
   {
-    mCaCertsCache.insert( QgsAuthCertUtils::shaHexForCert( cert ),
-                          QPair<QgsAuthCertUtils::CaCertSource, QSslCertificate>( source, cert ) );
+    // mCaCertsCache.insert( QgsAuthCertUtils::shaHexForCert( cert ),
+    //                      QPair<QgsAuthCertUtils::CaCertSource, QSslCertificate>( source, cert ) );
   }
 }
-

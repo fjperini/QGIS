@@ -143,10 +143,11 @@ QSslCertificate QgsAuthCertUtils::certFromFile( const QString &certpath )
   }
   return cert;
 }
-
+/***************************************************************************
 QSslKey QgsAuthCertUtils::keyFromFile( const QString &keypath,
                                        const QString &keypass,
                                        QString *algtype )
+
 {
   bool pem = keypath.endsWith( ".pem", Qt::CaseInsensitive );
   QByteArray keydata( fileData_( keypath, pem ) );
@@ -180,7 +181,7 @@ QSslKey QgsAuthCertUtils::keyFromFile( const QString &keypath,
 
   return clientkey;
 }
-
+ ***************************************************************************/
 QList<QSslCertificate> QgsAuthCertUtils::certsFromString( const QString &pemtext )
 {
   QList<QSslCertificate> certs;
@@ -641,12 +642,13 @@ QList<QgsAuthCertUtils::CertUsageType> QgsAuthCertUtils::certificateUsageTypes( 
     }
   }
 
+/***************************************************************************
   // ask QCA what it thinks about potential usages
   QCA::CertificateCollection trustedCAs(
     qtCertsToQcaCollection( QgsAuthManager::instance()->getTrustedCaCertsCache() ) );
   QCA::CertificateCollection untrustedCAs(
     qtCertsToQcaCollection( QgsAuthManager::instance()->getUntrustedCaCerts() ) );
-
+ ***************************************************************************/
   QCA::Validity v_any;
   v_any = qcacert.validate( trustedCAs, untrustedCAs, QCA::UsageAny, QCA::ValidateAll );
   if ( v_any == QCA::ValidityGood )

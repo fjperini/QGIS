@@ -2873,7 +2873,7 @@ QgsAuthManager::QgsAuthManager()
     , mScheduledDbEraseRequestEmitted( false )
     , mScheduledDbEraseRequestCount( 0 )
     , mMutex( nullptr )
-    , mIgnoredSslErrorsCache( QHash<QString, QSet<QSslError::SslError> >() )
+    // , mIgnoredSslErrorsCache( QHash<QString, QSet<QSslError::SslError> >() )
 {
   mMutex = new QMutex( QMutex::Recursive );
   connect( this, SIGNAL( messageOut( const QString&, const QString&, QgsAuthManager::MessageLevel ) ),
@@ -3441,11 +3441,13 @@ bool QgsAuthManager::authDbTransactionQuery( QSqlQuery *query ) const
   return ok;
 }
 
+ /***************************************************************************
 void QgsAuthManager::insertCaCertInCache( QgsAuthCertUtils::CaCertSource source, const QList<QSslCertificate>& certs )
 {
   Q_FOREACH ( const QSslCertificate& cert, certs )
   {
-    // mCaCertsCache.insert( QgsAuthCertUtils::shaHexForCert( cert ),
-    //                      QPair<QgsAuthCertUtils::CaCertSource, QSslCertificate>( source, cert ) );
+    mCaCertsCache.insert( QgsAuthCertUtils::shaHexForCert( cert ),
+                          QPair<QgsAuthCertUtils::CaCertSource, QSslCertificate>( source, cert ) );
   }
 }
+ ***************************************************************************/
